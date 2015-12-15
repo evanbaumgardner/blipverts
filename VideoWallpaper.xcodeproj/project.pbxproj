@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2437E6491C183197005F4778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437E6481C183197005F4778 /* AppDelegate.swift */; };
+		2437E64D1C183197005F4778 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437E64C1C183197005F4778 /* GameScene.swift */; };
+		2437E64F1C183197005F4778 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437E64E1C183197005F4778 /* GameViewController.swift */; };
+		2437E6511C183198005F4778 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2437E6501C183198005F4778 /* Game.xcassets */; };
+		2437E6541C183198005F4778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2437E6521C183198005F4778 /* Main.storyboard */; };
+		2437E6561C183198005F4778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2437E6551C183198005F4778 /* Assets.xcassets */; };
+		24926CEA1C19BB7800CDEB2F /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24926CE91C19BB7800CDEB2F /* MenuScene.swift */; };
+		24A3AC451C19DD330090D337 /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC401C19DD330090D337 /* video1.mp4 */; };
+		24A3AC461C19DD330090D337 /* video2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC411C19DD330090D337 /* video2.mp4 */; };
+		24A3AC471C19DD330090D337 /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC421C19DD330090D337 /* video3.mp4 */; };
+		24A3AC481C19DD330090D337 /* video4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC431C19DD330090D337 /* video4.mp4 */; };
+		24A3AC491C19DD330090D337 /* video5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC441C19DD330090D337 /* video5.mp4 */; };
+		24F102ED1C19C82D00D5AEBC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 24F102EC1C19C82D00D5AEBC /* MenuScene.sks */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2437E6451C183197005F4778 /* VideoWallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoWallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2437E6481C183197005F4778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2437E64C1C183197005F4778 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		2437E64E1C183197005F4778 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		2437E6501C183198005F4778 /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
+		2437E6531C183198005F4778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2437E6551C183198005F4778 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2437E6571C183198005F4778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24926CE91C19BB7800CDEB2F /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		24A3AC401C19DD330090D337 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
+		24A3AC411C19DD330090D337 /* video2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video2.mp4; sourceTree = "<group>"; };
+		24A3AC421C19DD330090D337 /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
+		24A3AC431C19DD330090D337 /* video4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video4.mp4; sourceTree = "<group>"; };
+		24A3AC441C19DD330090D337 /* video5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video5.mp4; sourceTree = "<group>"; };
+		24F102EC1C19C82D00D5AEBC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2437E6421C183197005F4778 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2437E63C1C183197005F4778 = {
+			isa = PBXGroup;
+			children = (
+				2437E6471C183197005F4778 /* VideoWallpaper */,
+				2437E6461C183197005F4778 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2437E6461C183197005F4778 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2437E6451C183197005F4778 /* VideoWallpaper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2437E6471C183197005F4778 /* VideoWallpaper */ = {
+			isa = PBXGroup;
+			children = (
+				24A3AC3F1C19DD330090D337 /* Videos */,
+				2437E6481C183197005F4778 /* AppDelegate.swift */,
+				2437E64C1C183197005F4778 /* GameScene.swift */,
+				24926CE91C19BB7800CDEB2F /* MenuScene.swift */,
+				2437E64E1C183197005F4778 /* GameViewController.swift */,
+				24F102EC1C19C82D00D5AEBC /* MenuScene.sks */,
+				2437E6501C183198005F4778 /* Game.xcassets */,
+				2437E6521C183198005F4778 /* Main.storyboard */,
+				2437E6551C183198005F4778 /* Assets.xcassets */,
+				2437E6571C183198005F4778 /* Info.plist */,
+			);
+			path = VideoWallpaper;
+			sourceTree = "<group>";
+		};
+		24A3AC3F1C19DD330090D337 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				24A3AC401C19DD330090D337 /* video1.mp4 */,
+				24A3AC411C19DD330090D337 /* video2.mp4 */,
+				24A3AC421C19DD330090D337 /* video3.mp4 */,
+				24A3AC431C19DD330090D337 /* video4.mp4 */,
+				24A3AC441C19DD330090D337 /* video5.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2437E6441C183197005F4778 /* VideoWallpaper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2437E65A1C183198005F4778 /* Build configuration list for PBXNativeTarget "VideoWallpaper" */;
+			buildPhases = (
+				2437E6411C183197005F4778 /* Sources */,
+				2437E6421C183197005F4778 /* Frameworks */,
+				2437E6431C183197005F4778 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideoWallpaper;
+			productName = VideoWallpaper;
+			productReference = 2437E6451C183197005F4778 /* VideoWallpaper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2437E63D1C183197005F4778 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Atikur Rahman";
+				TargetAttributes = {
+					2437E6441C183197005F4778 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 2437E6401C183197005F4778 /* Build configuration list for PBXProject "VideoWallpaper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2437E63C1C183197005F4778;
+			productRefGroup = 2437E6461C183197005F4778 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2437E6441C183197005F4778 /* VideoWallpaper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2437E6431C183197005F4778 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2437E6541C183198005F4778 /* Main.storyboard in Resources */,
+				2437E6561C183198005F4778 /* Assets.xcassets in Resources */,
+				24A3AC491C19DD330090D337 /* video5.mp4 in Resources */,
+				24A3AC461C19DD330090D337 /* video2.mp4 in Resources */,
+				24F102ED1C19C82D00D5AEBC /* MenuScene.sks in Resources */,
+				24A3AC481C19DD330090D337 /* video4.mp4 in Resources */,
+				24A3AC451C19DD330090D337 /* video1.mp4 in Resources */,
+				2437E6511C183198005F4778 /* Game.xcassets in Resources */,
+				24A3AC471C19DD330090D337 /* video3.mp4 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2437E6411C183197005F4778 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2437E64D1C183197005F4778 /* GameScene.swift in Sources */,
+				24926CEA1C19BB7800CDEB2F /* MenuScene.swift in Sources */,
+				2437E64F1C183197005F4778 /* GameViewController.swift in Sources */,
+				2437E6491C183197005F4778 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2437E6521C183198005F4778 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2437E6531C183198005F4778 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2437E6581C183198005F4778 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		2437E6591C183198005F4778 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2437E65B1C183198005F4778 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = VideoWallpaper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.atikur.VideoWallpaper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2437E65C1C183198005F4778 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = VideoWallpaper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.atikur.VideoWallpaper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2437E6401C183197005F4778 /* Build configuration list for PBXProject "VideoWallpaper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2437E6581C183198005F4778 /* Debug */,
+				2437E6591C183198005F4778 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2437E65A1C183198005F4778 /* Build configuration list for PBXNativeTarget "VideoWallpaper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2437E65B1C183198005F4778 /* Debug */,
+				2437E65C1C183198005F4778 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2437E63D1C183197005F4778 /* Project object */;
+}
