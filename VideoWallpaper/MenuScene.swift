@@ -33,14 +33,16 @@ class MenuScene: SKScene {
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let soundHover = SKAction.playSoundFileNamed("hover.wav", waitForCompletion: false)
+    
     var allButtons: [LabelContainer]!
     var previewBox: SKSpriteNode!
     
+    // IAP status
     var isUnlockedThirdVideo = false
     var isUnlockedFourthVideo = false
     var isUnlockedFifthVideo = false
     
-    // players
+    // Video player
     var player: AVQueuePlayer!
     var playerLayer: AVPlayerLayer!
     
@@ -49,9 +51,9 @@ class MenuScene: SKScene {
     
     // MARK: - Property Observers
     
-    var videoIndex = 1 {
+    var currentVideoIndex = 1 {
         didSet {
-            if videoIndex != oldValue {
+            if currentVideoIndex != oldValue {
                 updateVideo()
             }
         }
@@ -64,7 +66,7 @@ class MenuScene: SKScene {
                 runAction(soundHover)
                 
                 if focusedButton.rawValue <= 4 {
-                    videoIndex = focusedButton.rawValue + 1
+                    currentVideoIndex = focusedButton.rawValue + 1
                 }
             }
         }
@@ -95,36 +97,8 @@ class MenuScene: SKScene {
         }
     }
     
-    func updateFocusedButton() {
-        for i in 0..<allButtons.count {
-            if i == focusedButton.rawValue {
-                allButtons[i].texture = SKTexture(imageNamed: "focusButtonBox")
-                allButtons[i].label.fontColor = SKColor.blackColor()
-            } else {
-                allButtons[i].texture = SKTexture(imageNamed: "normalButtonBox")
-                allButtons[i].label.fontColor = colorButtonNormal
-            }
-            
-            allButtons[i].size = allButtons[i].texture!.size()
-        }
-    }
-    
     func getIAPStatus() {
         
-    }
-    
-    func updateButtonTitleBasedOnIAPStatus() {
-        if isUnlockedThirdVideo {
-            allButtons[Button.THIRD_VIDEO.rawValue].label.text = "Third Video"
-        }
-        
-        if isUnlockedFourthVideo {
-            allButtons[Button.FOURTH_VIDEO.rawValue].label.text = "Fourth Video"
-        }
-        
-        if isUnlockedFifthVideo {
-            allButtons[Button.FIFTH_VIDEO.rawValue].label.text = "Fifth Video"
-        }
     }
     
     // MARK: - Video Playback
@@ -159,9 +133,11 @@ class MenuScene: SKScene {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem1)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem2)
         
-        playerLayer.removeFromSuperlayer()
+        if playerLayer != nil {
+            playerLayer.removeFromSuperlayer()
+        }
         
-        playVideo("video\(videoIndex)")
+        playVideo("video\(currentVideoIndex)")
         
         player.play()
     }
@@ -204,7 +180,7 @@ class MenuScene: SKScene {
         
         blackRect.runAction(transition) {
             let scene = GameScene(size: self.size)
-            scene.fileName = "video\(self.videoIndex)"
+            scene.fileName = "video\(self.currentVideoIndex)"
             scene.scaleMode = self.scaleMode
             self.view?.presentScene(scene)
         }
@@ -216,11 +192,11 @@ class MenuScene: SKScene {
         allButtons = []
         
         let buttonTitles = [
-            "First Video",
-            "Second Video",
-            "Third Video - $0.99",
-            "Fourth Video - $0.99",
-            "Fifth Video - $0.99",
+            titleVideo1,
+            titleVideo2,
+            titleVideo3Locked,
+            titleVideo4Locked,
+            titleVideo5Locked,
             "Unlock All - $1.99",
             "Restore Purchases"
         ]
@@ -239,15 +215,30 @@ class MenuScene: SKScene {
         }
     }
     
+    func updateButtonTitleBasedOnIAPStatus() {
+        if isUnlockedThirdVideo {
+            allButtons[Button.THIRD_VIDEO.rawValue].label.text = titleVideo3
+        }
+        
+        if isUnlockedFourthVideo {
+            allButtons[Button.FOURTH_VIDEO.rawValue].label.text = titleVideo4
+        }
+        
+        if isUnlockedFifthVideo {
+            allButtons[Button.FIFTH_VIDEO.rawValue].label.text = titleVideo5
+        }
+    }
+    
     func addBackground() {
         let background = SKSpriteNode(imageNamed: "background")
-        background.zPosition = -1
+        background.zPosition = -10
         background.position = CGPointMake(self.size.width/2, self.size.height/2)
         addChild(background)
     }
     
     func addPreviewBox() {
         previewBox = SKSpriteNode(imageNamed: "preview")
+        previewBox.zPosition = -1
         previewBox.position = CGPointMake(1360, 570)
         addChild(previewBox)
     }
@@ -280,5 +271,19 @@ class MenuScene: SKScene {
     
     func swipedDown(sender: UISwipeGestureRecognizer) {
         focusedButton.down()
+    }
+    
+    func updateFocusedButton() {
+        for i in 0..<allButtons.count {
+            if i == focusedButton.rawValue {
+                allButtons[i].texture = SKTexture(imageNamed: "focusButtonBox")
+                allButtons[i].label.fontColor = SKColor.blackColor()
+            } else {
+                allButtons[i].texture = SKTexture(imageNamed: "normalButtonBox")
+                allButtons[i].label.fontColor = colorButtonNormal
+            }
+            
+            allButtons[i].size = allButtons[i].texture!.size()
+        }
     }
 }
