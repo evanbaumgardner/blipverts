@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
         
         skView.ignoresSiblingOrder = true
         
-        let scene = MenuScene(fileNamed: "MenuScene")!
+        let scene = MenuScene(size: CGSizeMake(1920, 1080))
         scene.scaleMode = .AspectFill
         
         skView.presentScene(scene)

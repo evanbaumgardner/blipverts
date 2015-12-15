@@ -85,7 +85,7 @@ class GameScene: SKScene {
         ])
         
         blackRect.runAction(transition) {
-            let scene = MenuScene(fileNamed: "MenuScene")!
+            let scene = MenuScene(size: self.size)
             scene.scaleMode = self.scaleMode
             self.view?.presentScene(scene)
         }
