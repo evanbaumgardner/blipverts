@@ -23,13 +23,13 @@
 		24A321E21C1FDE5E00550EC4 /* focusButtonBoxSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A321DB1C1FDE5E00550EC4 /* focusButtonBoxSmall.png */; };
 		24A321E31C1FDE5E00550EC4 /* normalButtonBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A321DC1C1FDE5E00550EC4 /* normalButtonBox.png */; };
 		24A321E41C1FDE5E00550EC4 /* normalButtonBoxSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A321DD1C1FDE5E00550EC4 /* normalButtonBoxSmall.png */; };
-		24A321E61C1FDE5E00550EC4 /* textBrainGames.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A321DF1C1FDE5E00550EC4 /* textBrainGames.png */; };
 		24A321E81C1FE54900550EC4 /* preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A321E71C1FE54900550EC4 /* preview.png */; };
 		24A3AC451C19DD330090D337 /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC401C19DD330090D337 /* video1.mp4 */; };
 		24A3AC461C19DD330090D337 /* video2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC411C19DD330090D337 /* video2.mp4 */; };
 		24A3AC471C19DD330090D337 /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC421C19DD330090D337 /* video3.mp4 */; };
 		24A3AC481C19DD330090D337 /* video4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC431C19DD330090D337 /* video4.mp4 */; };
 		24A3AC491C19DD330090D337 /* video5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AC441C19DD330090D337 /* video5.mp4 */; };
+		24F9AF221C21258000F95182 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F9AF211C21258000F95182 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,13 +51,13 @@
 		24A321DB1C1FDE5E00550EC4 /* focusButtonBoxSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = focusButtonBoxSmall.png; sourceTree = "<group>"; };
 		24A321DC1C1FDE5E00550EC4 /* normalButtonBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalButtonBox.png; sourceTree = "<group>"; };
 		24A321DD1C1FDE5E00550EC4 /* normalButtonBoxSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalButtonBoxSmall.png; sourceTree = "<group>"; };
-		24A321DF1C1FDE5E00550EC4 /* textBrainGames.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textBrainGames.png; sourceTree = "<group>"; };
 		24A321E71C1FE54900550EC4 /* preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preview.png; sourceTree = "<group>"; };
 		24A3AC401C19DD330090D337 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 		24A3AC411C19DD330090D337 /* video2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video2.mp4; sourceTree = "<group>"; };
 		24A3AC421C19DD330090D337 /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
 		24A3AC431C19DD330090D337 /* video4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video4.mp4; sourceTree = "<group>"; };
 		24A3AC441C19DD330090D337 /* video5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video5.mp4; sourceTree = "<group>"; };
+		24F9AF211C21258000F95182 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,13 +119,13 @@
 		24A321D81C1FDE5E00550EC4 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				24F9AF211C21258000F95182 /* logo.png */,
 				24A321D91C1FDE5E00550EC4 /* background.png */,
 				24A321E71C1FE54900550EC4 /* preview.png */,
 				24A321DA1C1FDE5E00550EC4 /* focusButtonBox.png */,
 				24A321DB1C1FDE5E00550EC4 /* focusButtonBoxSmall.png */,
 				24A321DC1C1FDE5E00550EC4 /* normalButtonBox.png */,
 				24A321DD1C1FDE5E00550EC4 /* normalButtonBoxSmall.png */,
-				24A321DF1C1FDE5E00550EC4 /* textBrainGames.png */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -174,6 +174,7 @@
 				TargetAttributes = {
 					2437E6441C183197005F4778 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 9PYG64528E;
 					};
 				};
 			};
@@ -202,12 +203,12 @@
 			files = (
 				24A321D71C1FDDE400550EC4 /* hover.wav in Resources */,
 				24A321E01C1FDE5E00550EC4 /* background.png in Resources */,
+				24F9AF221C21258000F95182 /* logo.png in Resources */,
 				24A321E41C1FDE5E00550EC4 /* normalButtonBoxSmall.png in Resources */,
 				2437E6541C183198005F4778 /* Main.storyboard in Resources */,
 				2437E6561C183198005F4778 /* Assets.xcassets in Resources */,
 				24A3AC491C19DD330090D337 /* video5.mp4 in Resources */,
 				24A321E11C1FDE5E00550EC4 /* focusButtonBox.png in Resources */,
-				24A321E61C1FDE5E00550EC4 /* textBrainGames.png in Resources */,
 				24A321E81C1FE54900550EC4 /* preview.png in Resources */,
 				24A321E21C1FDE5E00550EC4 /* focusButtonBoxSmall.png in Resources */,
 				24A3AC461C19DD330090D337 /* video2.mp4 in Resources */,
@@ -336,10 +337,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideoWallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.atikur.VideoWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -348,10 +352,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideoWallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.atikur.VideoWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

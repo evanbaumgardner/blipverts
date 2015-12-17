@@ -11,11 +11,9 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    var player: AVQueuePlayer!
+    var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
-    var playerItem1: AVPlayerItem!
-    var playerItem2: AVPlayerItem!
     var fileName: String!
     
     override func didMoveToView(view: SKView) {
@@ -24,55 +22,40 @@ class GameScene: SKScene {
     
     func playVideo() {
         let path = NSBundle.mainBundle().pathForResource(fileName, ofType:"mp4")!
-        
-        playerItem1 = AVPlayerItem(URL: NSURL(fileURLWithPath: path))
-        playerItem2 = AVPlayerItem(URL: NSURL(fileURLWithPath: path))
-        
-        player = AVQueuePlayer(items: [playerItem1, playerItem2])
+        player = AVPlayer(URL: NSURL(fileURLWithPath: path))
         
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = scene!.view!.frame
         scene!.view!.layer.addSublayer(playerLayer)
         
+        player.actionAtItemEnd = .None
         player.play()
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "playerItem1DidReachEnd:",
-            name: AVPlayerItemDidPlayToEndTimeNotification ,
-            object: playerItem1)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "playerItem2DidReachEnd:",
-            name: AVPlayerItemDidPlayToEndTimeNotification ,
-            object: playerItem2)
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().addObserver(self,
+                selector: "playerItemDidReachEnd:",
+                name: AVPlayerItemDidPlayToEndTimeNotification ,
+                object: self.player.currentItem)
+        }
     }
     
-    func playerItem1DidReachEnd(notification: NSNotification) {
-        print("item 1 finished")
+    func playerItemDidReachEnd(notification: NSNotification) {
+        print("repeating...")
         
-        player.removeItem(playerItem1)
-        player.insertItem(playerItem1, afterItem: playerItem2)
-        playerItem1.seekToTime(kCMTimeZero)
+        let seconds : Int64 = 0
+        let preferredTimeScale : Int32 = 1
+        let seekTime : CMTime = CMTimeMake(seconds, preferredTimeScale)
         
-        print(player.items().count)
-    }
-    
-    func playerItem2DidReachEnd(notification: NSNotification) {
-        print("item 2 finished")
-        
-        player.removeItem(playerItem2)
-        player.insertItem(playerItem2, afterItem: playerItem1)
-        playerItem2.seekToTime(kCMTimeZero)
-        
-        print(player.items().count)
+        player.seekToTime(seekTime)
+        player.play()
     }
     
     func returnToMenu() {
-        // remove player layer
         playerLayer.removeFromSuperlayer()
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem1)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem2)
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: self.player.currentItem)
+        }
         
         let blackRect = SKSpriteNode(color: SKColor.blackColor(), size: self.size)
         blackRect.anchorPoint = CGPointZero

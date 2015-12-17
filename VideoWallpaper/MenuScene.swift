@@ -43,11 +43,8 @@ class MenuScene: SKScene {
     var isUnlockedFifthVideo = false
     
     // Video player
-    var player: AVQueuePlayer!
+    var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
-    
-    var playerItem1: AVPlayerItem!
-    var playerItem2: AVPlayerItem!
     
     // MARK: - Property Observers
     
@@ -85,6 +82,8 @@ class MenuScene: SKScene {
         updateFocusedButton()
         getIAPStatus()
         updateButtonTitleBasedOnIAPStatus()
+        
+        playVideo("video\(currentVideoIndex)")
     }
     
     func buttonPressed(sender: UITapGestureRecognizer) {
@@ -92,8 +91,38 @@ class MenuScene: SKScene {
         
         self.runAction(soundButtonClick)
         
-        if focusedButton.rawValue < 5 {
+        if focusedButton == .FIRST_VIDEO || focusedButton == .SECOND_VIDEO {
             navigateToPlaybackScene()
+        } else if focusedButton == .THIRD_VIDEO {
+            if isUnlockedThirdVideo {
+                navigateToPlaybackScene()
+            } else {
+                print("item locked...")
+            }
+        } else if focusedButton == .FOURTH_VIDEO {
+            if isUnlockedFourthVideo {
+                navigateToPlaybackScene()
+            } else {
+                print("item locked...")
+            }
+        } else if focusedButton == .FIFTH_VIDEO {
+            if isUnlockedFifthVideo {
+                navigateToPlaybackScene()
+            } else {
+                print("item locked...")
+            }
+        } else if focusedButton == .PURCHASE_ALL {
+            if isUnlockedThirdVideo && isUnlockedFourthVideo && isUnlockedFifthVideo {
+                print("already unlocked all videos")
+            } else {
+                print("item locked...")
+            }
+        } else if focusedButton == .RESTORE {
+            if isUnlockedThirdVideo && isUnlockedFourthVideo && isUnlockedFifthVideo {
+                print("already restored")
+            } else {
+                print("processing restore")
+            }
         }
     }
     
@@ -105,68 +134,52 @@ class MenuScene: SKScene {
     
     func playVideo(filename: String) {
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"mp4")!
-        
-        playerItem1 = AVPlayerItem(URL: NSURL(fileURLWithPath: path))
-        playerItem2 = AVPlayerItem(URL: NSURL(fileURLWithPath: path))
-        
-        player = AVQueuePlayer(items: [playerItem1, playerItem2])
+        player = AVPlayer(URL: NSURL(fileURLWithPath: path))
         
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = CGRectMake(880, 240, 960, 540)
-        print(playerLayer.anchorPoint)
         scene!.view!.layer.addSublayer(playerLayer)
         
+        player.actionAtItemEnd = .None
         player.play()
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "playerItem1DidReachEnd:",
-            name: AVPlayerItemDidPlayToEndTimeNotification ,
-            object: playerItem1)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "playerItem2DidReachEnd:",
-            name: AVPlayerItemDidPlayToEndTimeNotification ,
-            object: playerItem2)
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().addObserver(self,
+                selector: "playerItemDidReachEnd:",
+                name: AVPlayerItemDidPlayToEndTimeNotification ,
+                object: self.player.currentItem)
+        }
     }
     
     func updateVideo() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem1)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem2)
-        
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: self.player.currentItem)
+        }
+    
         if playerLayer != nil {
             playerLayer.removeFromSuperlayer()
         }
         
         playVideo("video\(currentVideoIndex)")
+    }
+    
+    func playerItemDidReachEnd(notification: NSNotification) {
+        print("repeating...")
         
+        let seconds : Int64 = 0
+        let preferredTimeScale : Int32 = 1
+        let seekTime : CMTime = CMTimeMake(seconds, preferredTimeScale)
+        
+        player.seekToTime(seekTime)
         player.play()
-    }
-    
-    func playerItem1DidReachEnd(notification: NSNotification) {
-        print("item 1 finished")
-        
-        player.removeItem(playerItem1)
-        player.insertItem(playerItem1, afterItem: playerItem2)
-        playerItem1.seekToTime(kCMTimeZero)
-        
-        print(player.items().count)
-    }
-    
-    func playerItem2DidReachEnd(notification: NSNotification) {
-        print("item 2 finished")
-        
-        player.removeItem(playerItem2)
-        player.insertItem(playerItem2, afterItem: playerItem1)
-        playerItem2.seekToTime(kCMTimeZero)
-        
-        print(player.items().count)
     }
     
     func navigateToPlaybackScene() {
         playerLayer.removeFromSuperlayer()
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem1)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem2)
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: self.player.currentItem)
+        }
         
         let blackRect = SKSpriteNode(color: SKColor.blackColor(), size: self.size)
         blackRect.anchorPoint = CGPointZero
@@ -244,7 +257,7 @@ class MenuScene: SKScene {
     }
     
     func addLogo() {
-        let logo = SKSpriteNode(imageNamed: "textBrainGames")
+        let logo = SKSpriteNode(imageNamed: "logo")
         logo.position = CGPointMake(1360, 980)
         addChild(logo)
     }
