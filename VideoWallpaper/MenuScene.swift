@@ -9,7 +9,7 @@
 import AVKit
 import SpriteKit
 
-class MenuScene: SKScene {
+class MenuScene: SKScene, GameViewControllerDelegate {
     
     // MARK: - Enum
     
@@ -97,37 +97,80 @@ class MenuScene: SKScene {
             if isUnlockedThirdVideo {
                 navigateToPlaybackScene()
             } else {
-                print("item locked...")
+                tapPurchaseProductButton(idIapUnlockVideo3)
             }
         } else if focusedButton == .FOURTH_VIDEO {
             if isUnlockedFourthVideo {
                 navigateToPlaybackScene()
             } else {
-                print("item locked...")
+                tapPurchaseProductButton(idIapUnlockVideo4)
             }
         } else if focusedButton == .FIFTH_VIDEO {
             if isUnlockedFifthVideo {
                 navigateToPlaybackScene()
             } else {
-                print("item locked...")
+                tapPurchaseProductButton(idIapUnlockVideo5)
             }
         } else if focusedButton == .PURCHASE_ALL {
             if isUnlockedThirdVideo && isUnlockedFourthVideo && isUnlockedFifthVideo {
-                print("already unlocked all videos")
+                if let controller = self.view?.window?.rootViewController as? GameViewController {
+                    controller.showAlert(title: "Already Unlocked!", message: "You already unlocked all videos!")
+                }
             } else {
-                print("item locked...")
+                tapPurchaseProductButton(idIapUnlockAll)
             }
         } else if focusedButton == .RESTORE {
-            if isUnlockedThirdVideo && isUnlockedFourthVideo && isUnlockedFifthVideo {
-                print("already restored")
-            } else {
-                print("processing restore")
+            if let controller = self.view?.window?.rootViewController as? GameViewController {
+                if isUnlockedThirdVideo && isUnlockedFourthVideo && isUnlockedFifthVideo  {
+                    controller.showAlert(title: "Already Restored!", message: "In-App Purchase items are already restored!")
+                } else {
+                    controller.getProductInfo()
+                    if controller.isIAPItemsReady {
+                        controller.delegate = self
+                        controller.restorePurchases()
+                    } else {
+                        controller.showAlert(title: "Try Again!", message: "Can't process the request. Please make sure your device is connected to the Internet.")
+                    }
+                }
             }
         }
     }
     
     func getIAPStatus() {
-        
+        isUnlockedThirdVideo = userDefaults.boolForKey(keyIsUnlockedVideo3)
+        isUnlockedFourthVideo = userDefaults.boolForKey(keyIsUnlockedVideo4)
+        isUnlockedFifthVideo = userDefaults.boolForKey(keyIsUnlockedVideo5)
+    }
+    
+    // MARK: - IAP
+    
+    func tapPurchaseProductButton(identifier: String) {
+        if let controller = self.view?.window?.rootViewController as? GameViewController {
+            controller.getProductInfo()
+            if controller.isIAPItemsReady {
+                controller.delegate = self
+                for product in controller.products {
+                    if product.productIdentifier == identifier {
+                        controller.buyIAPItem(product)
+                        break
+                    }
+                }
+            } else {
+                controller.showAlert(title: "Try Again!", message: "Can't process the request. Please make sure your device is connected to the Internet.")
+            }
+        }
+    }
+    
+    // MARK: - GameViewControllerDelegate methods
+    
+    func didMakePaymentSuccessfully(productID: String) {
+        getIAPStatus()
+        updateButtonTitleBasedOnIAPStatus()
+    }
+    
+    func didRestorePurchasesSuccessfully(productID: String) {
+        getIAPStatus()
+        updateButtonTitleBasedOnIAPStatus()
     }
     
     // MARK: - Video Playback

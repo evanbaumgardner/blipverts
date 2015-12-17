@@ -19,4 +19,11 @@ let titleVideo3Locked = "\(titleVideo3) - $0.99"
 let titleVideo4Locked = "\(titleVideo4) - $0.99"
 let titleVideo5Locked = "\(titleVideo5) - $0.99"
 
+let idIapUnlockVideo3 = "com.atikur.VideoWallpaper.unlockVideo3"
+let idIapUnlockVideo4 = "com.atikur.VideoWallpaper.unlockVideo4"
+let idIapUnlockVideo5 = "com.atikur.VideoWallpaper.unlockVideo5"
+let idIapUnlockAll = "com.atikur.VideoWallpaper.unlockAll"
 
+let keyIsUnlockedVideo3 = "unlv3"
+let keyIsUnlockedVideo4 = "unlv4"
+let keyIsUnlockedVideo5 = "unlv5"
