@@ -94,10 +94,8 @@
 				24A321D31C1FDDE400550EC4 /* Sounds */,
 				24A3AC3F1C19DD330090D337 /* Videos */,
 				2437E6481C183197005F4778 /* AppDelegate.swift */,
-				2437E64C1C183197005F4778 /* GameScene.swift */,
-				24A321CD1C1FD89B00550EC4 /* MenuScene.swift */,
-				24A321D11C1FDD3E00550EC4 /* Helper.swift */,
-				24A321CF1C1FDD2600550EC4 /* LabelContainer.swift */,
+				24EA40401C24055800C19B22 /* Scenes */,
+				24EA40411C24056200C19B22 /* Helpers */,
 				2437E64E1C183197005F4778 /* GameViewController.swift */,
 				2437E6501C183198005F4778 /* Game.xcassets */,
 				2437E6521C183198005F4778 /* Main.storyboard */,
@@ -138,6 +136,24 @@
 				24A3AC441C19DD330090D337 /* video5.mp4 */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		24EA40401C24055800C19B22 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2437E64C1C183197005F4778 /* GameScene.swift */,
+				24A321CD1C1FD89B00550EC4 /* MenuScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		24EA40411C24056200C19B22 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				24A321D11C1FDD3E00550EC4 /* Helper.swift */,
+				24A321CF1C1FDD2600550EC4 /* LabelContainer.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
