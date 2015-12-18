@@ -133,7 +133,7 @@ class MenuScene: SKScene, GameViewControllerDelegate {
                         controller.delegate = self
                         controller.restorePurchases()
                     } else {
-                        controller.showAlert(title: "Try Again!", message: "Can't process the request. Please make sure your device is connected to the Internet.")
+                        controller.showAlert(title: "Try Again!", message: "Can't process the request. Try again!")
                     }
                 }
             }
@@ -164,7 +164,7 @@ class MenuScene: SKScene, GameViewControllerDelegate {
                     }
                 }
             } else {
-                controller.showAlert(title: "Try Again!", message: "Can't process the request. Please make sure your device is connected to the Internet.")
+                controller.showAlert(title: "Try Again!", message: "Can't process the request. Try again!")
             }
         }
     }
