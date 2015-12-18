@@ -188,7 +188,7 @@ class MenuScene: SKScene, GameViewControllerDelegate {
         player = AVPlayer(URL: NSURL(fileURLWithPath: path))
         
         playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = CGRectMake(880, 240, 960, 540)
+        playerLayer.frame = CGRectMake(880, 270, 960, 540)
         scene!.view!.layer.addSublayer(playerLayer)
         
         player.actionAtItemEnd = .None
@@ -303,21 +303,21 @@ class MenuScene: SKScene, GameViewControllerDelegate {
     func addPreviewBox() {
         previewBox = SKSpriteNode(imageNamed: "preview")
         previewBox.zPosition = -1
-        previewBox.position = CGPointMake(1360, 570)
+        previewBox.position = CGPointMake(1360, 540)
         addChild(previewBox)
     }
     
     func addLogo() {
         let logo = SKSpriteNode(imageNamed: "logo")
-        logo.position = CGPointMake(1360, 980)
+        logo.position = CGPointMake(1360, 950)
         addChild(logo)
     }
     
     func addPreviewLabel() {
-        previewLabel = SKLabelNode(fontNamed: "DINAlternate-Bold")
+        previewLabel = SKLabelNode(fontNamed: "HelveticaNeue")
         previewLabel.fontColor = SKColor.whiteColor()
         previewLabel.fontSize = 60
-        previewLabel.position = CGPointMake(CGRectGetMinX(previewBox.frame), 200)
+        previewLabel.position = CGPointMake(CGRectGetMinX(previewBox.frame), 145)
         previewLabel.text = previewTexts[0]
         previewLabel.horizontalAlignmentMode = .Left
         addChild(previewLabel)
