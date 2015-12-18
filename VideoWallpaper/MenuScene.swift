@@ -36,6 +36,7 @@ class MenuScene: SKScene, GameViewControllerDelegate {
     
     var allButtons: [LabelContainer]!
     var previewBox: SKSpriteNode!
+    var previewLabel: SKLabelNode!
     
     // IAP status
     var isUnlockedThirdVideo = false
@@ -52,6 +53,7 @@ class MenuScene: SKScene, GameViewControllerDelegate {
         didSet {
             if currentVideoIndex != oldValue {
                 updateVideo()
+                updatePreviewLabel()
             }
         }
     }
@@ -78,12 +80,14 @@ class MenuScene: SKScene, GameViewControllerDelegate {
         addLogo()
         addButtons()
         addPreviewBox()
+        addPreviewLabel()
         
         updateFocusedButton()
         getIAPStatus()
         updateButtonTitleBasedOnIAPStatus()
         
         playVideo("video\(currentVideoIndex)")
+        updatePreviewLabel()
     }
     
     func buttonPressed(sender: UITapGestureRecognizer) {
@@ -140,6 +144,10 @@ class MenuScene: SKScene, GameViewControllerDelegate {
         isUnlockedThirdVideo = userDefaults.boolForKey(keyIsUnlockedVideo3)
         isUnlockedFourthVideo = userDefaults.boolForKey(keyIsUnlockedVideo4)
         isUnlockedFifthVideo = userDefaults.boolForKey(keyIsUnlockedVideo5)
+    }
+    
+    func updatePreviewLabel() {
+        previewLabel.text = previewTexts[currentVideoIndex-1]
     }
     
     // MARK: - IAP
@@ -303,6 +311,16 @@ class MenuScene: SKScene, GameViewControllerDelegate {
         let logo = SKSpriteNode(imageNamed: "logo")
         logo.position = CGPointMake(1360, 980)
         addChild(logo)
+    }
+    
+    func addPreviewLabel() {
+        previewLabel = SKLabelNode(fontNamed: "DINAlternate-Bold")
+        previewLabel.fontColor = SKColor.whiteColor()
+        previewLabel.fontSize = 60
+        previewLabel.position = CGPointMake(CGRectGetMinX(previewBox.frame), 200)
+        previewLabel.text = previewTexts[0]
+        previewLabel.horizontalAlignmentMode = .Left
+        addChild(previewLabel)
     }
     
     // MARK: - Gesture Recognizers

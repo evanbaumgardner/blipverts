@@ -15,6 +15,15 @@ let titleVideo2 = "Ocean Waves"
 let titleVideo3 = "Aquarium"
 let titleVideo4 = "Solar Eclipse"
 let titleVideo5 = "Wild Deer"
+
+let previewTexts = [
+    "Amazing sunset video",
+    "Ocean waves video",
+    "Aquarium video",
+    "Solar eclipse video",
+    "Wild deer video"
+]
+
 let titleVideo3Locked = "\(titleVideo3) - $0.99"
 let titleVideo4Locked = "\(titleVideo4) - $0.99"
 let titleVideo5Locked = "\(titleVideo5) - $0.99"
