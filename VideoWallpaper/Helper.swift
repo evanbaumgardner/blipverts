@@ -17,7 +17,7 @@ let titleVideo4 = "Solar Eclipse"
 let titleVideo5 = "Wild Deer"
 
 let previewTexts = [
-    "Amazing sunset video",
+    "An amazing sunset video",
     "Ocean waves video",
     "Aquarium video",
     "Solar eclipse video",
