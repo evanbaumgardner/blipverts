@@ -39,6 +39,7 @@ class MenuScene: SKScene, GameViewControllerDelegate {
     var previewLabel: SKLabelNode!
     
     // IAP status
+    
     var isUnlockedThirdVideo = false
     var isUnlockedFourthVideo = false
     var isUnlockedFifthVideo = false
@@ -140,10 +141,15 @@ class MenuScene: SKScene, GameViewControllerDelegate {
         }
     }
     
+     // this is where the purchases live, isUnlocked will let me unlock everything
+    
     func getIAPStatus() {
-        isUnlockedThirdVideo = userDefaults.boolForKey(keyIsUnlockedVideo3)
-        isUnlockedFourthVideo = userDefaults.boolForKey(keyIsUnlockedVideo4)
-        isUnlockedFifthVideo = userDefaults.boolForKey(keyIsUnlockedVideo5)
+                isUnlockedThirdVideo = true
+                isUnlockedFourthVideo = true
+                isUnlockedFifthVideo = true
+//        isUnlockedThirdVideo = userDefaults.boolForKey(keyIsUnlockedVideo3)
+//        isUnlockedFourthVideo = userDefaults.boolForKey(keyIsUnlockedVideo4)
+//        isUnlockedFifthVideo = userDefaults.boolForKey(keyIsUnlockedVideo5)
     }
     
     func updatePreviewLabel() {

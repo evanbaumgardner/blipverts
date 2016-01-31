@@ -11,25 +11,26 @@ import SpriteKit
 // MARK: - Update This Section
 
 // IAP Identifiers
-let idIapUnlockVideo3 = "com.atikur.VideoWallpaper.unlockVideo3"
-let idIapUnlockVideo4 = "com.atikur.VideoWallpaper.unlockVideo4"
-let idIapUnlockVideo5 = "com.atikur.VideoWallpaper.unlockVideo5"
-let idIapUnlockAll = "com.atikur.VideoWallpaper.unlockAll"
+let idIapUnlockVideo3 = "com.evanbaumgardner.Blipverts.unlockVideo3"
+let idIapUnlockVideo4 = "com.evanbaumgardner.Blipverts.unlockVideo4"
+let idIapUnlockVideo5 = "com.evanbaumgardner.Blipverts.unlockVideo5"
+let idIapUnlockAll = "com.evanbaumgardner.Blipverts.unlockAll"
 
 // Button Titles
-let titleVideo1 = "Amazing Sunset"
-let titleVideo2 = "Ocean Waves"
-let titleVideo3 = "Aquarium"
-let titleVideo4 = "Solar Eclipse"
-let titleVideo5 = "Wild Deer"
+let titleVideo1 = "Dusted Diamond"
+let titleVideo2 = "Blipverts"
+let titleVideo3 = "Magic Tile"
+let titleVideo4 = "Equalizer"
+let titleVideo5 = "Love Tunnel"
+
 
 // Video Descriptions [Used under preview box]
 let previewTexts = [
-    "An amazing sunset video",
-    "Ocean waves video",
-    "Aquarium video",
-    "Solar eclipse video",
-    "Wild deer video"
+    "This ain't Screech",
+    "That's All, Folks",
+    "Now THAT's A Backsplash",
+    "Check Your Levels",
+    "How Deep Is Your Love?",
 ]
 
 // MARK: - NO Need to Update
